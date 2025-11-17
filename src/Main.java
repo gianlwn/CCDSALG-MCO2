@@ -8,7 +8,7 @@ public class Main {
             System.out.print("Input file path: ");
             String filePath = scn.nextLine();
 
-            Graph graph = new Graph();
+            SocialGraph graph = new SocialGraph();
 
             while(graph.loadGraph(filePath)) {
                 System.out.println("\nMAIN MENU");
