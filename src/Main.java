@@ -55,6 +55,7 @@ public class Main {
 
                 case "0" -> {
                     System.out.println("Exiting program.");
+                    scn.close();
                     System.exit(0);
                 }
 
