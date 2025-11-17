@@ -14,6 +14,8 @@ public class Main {
             return;
         }
 
+        System.out.println("Graph Loaded!");
+
         while(true) {
             System.out.println("\nMAIN MENU");
             System.out.println("[1] Get friend list");

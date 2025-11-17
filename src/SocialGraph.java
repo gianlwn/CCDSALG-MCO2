@@ -38,9 +38,9 @@ public class SocialGraph {
                 // validate the node IDs
                 if (a < 0 || a >= numAccounts || b < 0 || b >= numAccounts) continue;
 
-                // add edge both ways (undirected)
-                graph.get(a).add(b);
-                graph.get(b).add(a);
+                // add edge both ways
+                if (!graph.get(a).contains(b)) graph.get(a).add(b);
+                if (!graph.get(b).contains(a)) graph.get(b).add(a);
             }
 
             return true;
