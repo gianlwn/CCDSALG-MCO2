@@ -17,16 +17,16 @@ public class Main {
                 System.out.println("[2] Get connection");
                 System.out.println("[3] Exit");
                 System.out.print("\nEnter your choice: ");
-                int choice = scn.nextInt();
+                String choice = scn.nextLine();
 
                 switch(choice){
-                    case 1 -> {
+                    case "1" -> {
                         System.out.print("Enter ID of person: ");
                         int id = scn.nextInt();
                         graph.displayFriendList(id);
                     }
 
-                    case 2 -> {
+                    case "2" -> {
                         System.out.print("Enter ID of first person: ");
                         int id1 = scn.nextInt();
                         System.out.print("Enter ID of second person: ");
@@ -34,12 +34,12 @@ public class Main {
                         graph.displayConnections(id1, id2);
                     }
 
-                    case 3 -> {
+                    case "3" -> {
                         System.out.println("Exiting program.");
                         System.exit(0);
                     }
+
                     default -> System.out.println("Invalid choice! Please enter 1, 2, or 3.");
-                        
                 }
             }
         }
