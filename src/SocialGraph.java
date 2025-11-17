@@ -3,55 +3,67 @@ import java.util.*;
 
 public class SocialGraph {
 
-    ArrayList<Integer>[] adjList; 
+    private ArrayList<ArrayList<Integer>> graph;
+    private int numAccounts; // n
+    private int numFriendships; // e
 
-    public boolean loadGraph(String filePath){
-        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))){
+    public boolean loadGraph(String filePath) {
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             
             // Read first line to get number of accounts (nodes) and friendships (edges)
-            String[] firstLine = reader.readLine().split(" ");
+            String[] firstLine = reader.readLine().trim().split("\\s+");
             // ex. firstLine[0] = "6"
             // ex. firstLine[1] = "8"
-            int numAccounts = Integer.parseInt(firstLine[0]);
-            int numFriendships = Integer.parseInt(firstLine[1]);
+            if (firstLine.length < 2) return false;
+
+            numAccounts = Integer.parseInt(firstLine[0]);
+            numFriendships = Integer.parseInt(firstLine[1]);
 
             // initialize list for all nodes
-            @SuppressWarnings("unchecked")
-            ArrayList<Integer>[] temp = new ArrayList[numAccounts];
-            adjList = temp;
+            graph = new ArrayList<>();
+            for(int i = 0; i < numAccounts; i++)
+                graph.add(new ArrayList<>());
 
-            for(int i = 0; i < numAccounts; i++){
-                adjList[i] = new ArrayList<>();
-            }
-
-            // read each friendship and add to adjacency list
-            for(int i = 0; i < numFriendships; i++){
+            // read each friendship and add to adjacency list, read edges
+            for(int i = 0; i < numFriendships; i++) {
                 String line = reader.readLine();
+                if (line == null) break;
 
-                String[] parts = line.split(" ");
+                String[] parts = line.trim().split("\\s+");
+                if (parts.length != 2) continue;
+
                 int a = Integer.parseInt(parts[0]); // person a
                 int b = Integer.parseInt(parts[1]); // person b
 
-                // add friend to list
-                adjList[a].add(b);
+                // validate the node IDs
+                if (a < 0 || a >= numAccounts || b < 0 || b >= numAccounts) continue;
+
+                // add edge both ways (undirected)
+                graph.get(a).add(b);
+                graph.get(b).add(a);
             }
 
-            System.out.println("GRAPH LOADED!");
             return true;
 
-        } catch(IOException e){
-            System.out.println("Error reading file: " + e.getMessage());
+        } catch(IOException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
     }
 
-    public void displayFriendList(int id){
-        System.out.println("\nPerson " + id + " has " + adjList[id].size() + " friend/s!");
+    public void displayFriendList(int id) {
+        if (id < 0 || id >= graph.size()) {
+            System.out.println("Invalid ID: " + id);
+            return;
+        }
+
+        ArrayList<Integer> friends = graph.get(id);
+        System.out.println("\nPerson " + id + " has " + friends.size() + " friend(s).");
         System.out.print("List of friends: ");
 
-        for(int friend : adjList[id]){
+        for(int friend : friends)
             System.out.print(friend + " ");
-        }
+        
         System.out.println();
     }
 
