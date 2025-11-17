@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class SocialGraph {
-
+    // Variables
     private ArrayList<ArrayList<Integer>> graph;
     private int numAccounts; // n
     private int numFriendships; // e
