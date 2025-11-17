@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Graph {
 
-    HashSet<Integer>[] adjList; 
+    ArrayList<Integer>[] adjList; 
 
     public boolean loadGraph(String filePath){
         try(BufferedReader reader = new BufferedReader(new FileReader(filePath))){
@@ -17,11 +17,11 @@ public class Graph {
 
             // initialize list for all nodes
             @SuppressWarnings("unchecked")
-            HashSet<Integer>[] temp = (HashSet<Integer>[]) new HashSet[numAccounts];
+            ArrayList<Integer>[] temp = (ArrayList<Integer>[]) new ArrayList[numAccounts];
             adjList = temp;
 
             for(int i = 0; i < numAccounts; i++){
-                adjList[i] = new HashSet<>();
+                adjList[i] = new ArrayList<>();
             }
 
             // read each friendship and add to adjacency list
@@ -32,9 +32,8 @@ public class Graph {
                 int a = Integer.parseInt(parts[0]); // person a
                 int b = Integer.parseInt(parts[1]); // person b
 
-                // add bi-directional friendship
+                // add friend to list
                 adjList[a].add(b);
-                adjList[b].add(a);
             }
 
             return true;
