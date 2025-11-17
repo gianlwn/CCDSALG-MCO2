@@ -16,7 +16,10 @@ public class Graph {
             int numFriendships = Integer.parseInt(firstLine[1]);
 
             // initialize list for all nodes
-            adjList = new HashSet[numAccounts];
+            @SuppressWarnings("unchecked")
+            HashSet<Integer>[] temp = (HashSet<Integer>[]) new HashSet[numAccounts];
+            adjList = temp;
+            
             for(int i = 0; i < numAccounts; i++){
                 adjList[i] = new HashSet<>();
             }
