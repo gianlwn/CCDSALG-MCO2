@@ -11,6 +11,7 @@ public class Main {
 
         if (!graph.loadGraph(filePath)) {
             System.out.println("Failed to load the graph.");
+            scn.close();
             return;
         }
 
