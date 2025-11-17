@@ -58,7 +58,7 @@ public class SocialGraph {
         }
 
         ArrayList<Integer> friends = graph.get(id);
-        System.out.println("\nPerson " + id + " has " + friends.size() + " friend(s).");
+        System.out.println("\nPerson " + id + " has " + friends.size() + " friend(s)!");
         System.out.print("List of friends: ");
 
         for(int friend : friends)

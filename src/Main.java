@@ -21,7 +21,7 @@ public class Main {
             System.out.println("\nMAIN MENU");
             System.out.println("[1] Get friend list");
             System.out.println("[2] Get connection");
-            System.out.println("[0] Exit");
+            System.out.println("[3] Exit");
             System.out.print("\nEnter your choice: ");
             String choice = scn.nextLine();
 
@@ -54,7 +54,7 @@ public class Main {
                     graph.displayConnections(id1, id2);
                 }
 
-                case "0" -> {
+                case "3" -> {
                     System.out.println("Exiting program.");
                     scn.close();
                     System.exit(0);
