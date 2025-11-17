@@ -36,6 +36,7 @@ public class Graph {
                 adjList[a].add(b);
             }
 
+            System.out.println("GRAPH LOADED!");
             return true;
 
         } catch(IOException e){
