@@ -17,7 +17,7 @@ public class Graph {
 
             // initialize list for all nodes
             @SuppressWarnings("unchecked")
-            ArrayList<Integer>[] temp = (ArrayList<Integer>[]) new ArrayList[numAccounts];
+            ArrayList<Integer>[] temp = new ArrayList[numAccounts];
             adjList = temp;
 
             for(int i = 0; i < numAccounts; i++){
@@ -46,7 +46,6 @@ public class Graph {
     }
 
     public void displayFriendList(int id){
-        // TODO: PART 2 - DISPLAY FRIEND LIST
         System.out.println("\nPerson " + id + " has " + adjList[id].size() + " friend/s!");
         System.out.print("List of friends: ");
 
