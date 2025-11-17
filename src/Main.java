@@ -9,9 +9,8 @@ public class Main {
             String filePath = scn.nextLine();
 
             Graph graph = new Graph();
-            graph.loadGraph(filePath);
 
-            while(true){
+            while(graph.loadGraph(filePath)){
                 System.out.println("\nMAIN MENU");
                 System.out.println("[1] Get friend list");
                 System.out.println("[2] Get connection");

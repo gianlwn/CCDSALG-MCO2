@@ -5,7 +5,7 @@ public class Graph {
 
     HashSet<Integer>[] adjList; 
 
-    public void loadGraph(String filePath){
+    public boolean loadGraph(String filePath){
         try(BufferedReader reader = new BufferedReader(new FileReader(filePath))){
             
             // Read first line to get number of accounts (nodes) and friendships (edges)
@@ -19,7 +19,7 @@ public class Graph {
             @SuppressWarnings("unchecked")
             HashSet<Integer>[] temp = (HashSet<Integer>[]) new HashSet[numAccounts];
             adjList = temp;
-            
+
             for(int i = 0; i < numAccounts; i++){
                 adjList[i] = new HashSet<>();
             }
@@ -37,16 +37,17 @@ public class Graph {
                 adjList[b].add(a);
             }
 
-            System.out.println("Graph loaded!");
+            return true;
 
         } catch(IOException e){
             System.out.println("Error reading file: " + e.getMessage());
+            return false;
         }
     }
 
     public void displayFriendList(int id){
         // TODO: PART 2 - DISPLAY FRIEND LIST
-        System.out.println("\nPerson " + id + " has " + adjList[id].size() + " friends!");
+        System.out.println("\nPerson " + id + " has " + adjList[id].size() + " friend/s!");
         System.out.print("List of friends: ");
 
         for(int friend : adjList[id]){
