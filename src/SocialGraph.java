@@ -67,7 +67,69 @@ public class SocialGraph {
         System.out.println();
     }
 
-    public void displayConnections(int id1, int id2){
-        // TODO: PART 3 - DISPLAY CONNECTIONS
+    public void displayConnections(int id1, int id2) {
+        // Validate input IDs first
+        if (id1 < 0 || id1 >= graph.size() || id2 < 0 || id2 >= graph.size()) {
+            System.out.println("One or both IDs do not exist.");
+            return;
+        }
+
+        // Run BFS
+        ArrayList<Integer> path = bfs(id1, id2);
+
+        // No connection found
+        if (path == null) {
+            System.out.println("Cannot find a connection between " + id1 + " and " + id2 + ".");
+            return;
+        }
+
+        // Connection found
+        System.out.println("\nThere is a connection from " + id1 + " to " + id2 + "!");
+        System.out.print("Path: ");
+        for (int p : path) {
+            System.out.print(p + " ");
+        }
+        System.out.println();
+    }
+
+    private ArrayList<Integer> bfs(int id1, int id2) {
+        Queue<Integer> queue = new LinkedList<>();
+        int size = graph.size();
+        boolean[] visited = new boolean[size];
+        int[] parent = new int[size];
+
+        // Initialize parent
+        for (int i = 0; i < parent.length; i++) {
+            parent[i] = -1;
+        }
+
+        queue.add(id1);
+        visited[id1] = true;
+
+        while (!queue.isEmpty()) {
+            int current = queue.poll();
+
+            if (current == id2) break;
+
+            for (int neighbor : graph.get(current)) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    parent[neighbor] = current;
+                    queue.add(neighbor);
+                }
+            }
+        }
+
+        // No connection found
+        if (!visited[id2]) return null;
+
+        // Build path from id2 to id1
+        ArrayList<Integer> path = new ArrayList<>();
+        for (int at = id2; at != -1; at = parent[at]) {
+            path.add(at);
+        }
+
+        Collections.reverse(path);  // reverse to id1 to id2
+        return path;
     }
 }
