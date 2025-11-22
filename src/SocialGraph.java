@@ -129,7 +129,7 @@ public class SocialGraph {
             path.add(at);
         }
 
-        Collections.reverse(path);  // reverse to id1 to id2
+        Collections.reverse(path);  // reverse
         return path;
     }
 }
