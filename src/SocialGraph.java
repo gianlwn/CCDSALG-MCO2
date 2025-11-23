@@ -85,11 +85,12 @@ public class SocialGraph {
 
         // Connection found
         System.out.println("\nThere is a connection from " + id1 + " to " + id2 + "!");
-        System.out.print("Path: ");
-        for (int p : path) {
-            System.out.print(p + " ");
+
+        for (int i = 0; i < path.size() - 1; i++) {
+            int current = path.get(i);
+            int next = path.get(i + 1);
+            System.out.println(current + " is friends with " + next);
         }
-        System.out.println();
     }
 
     private ArrayList<Integer> bfs(int id1, int id2) {
