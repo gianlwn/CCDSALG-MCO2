@@ -19,13 +19,13 @@
 
 ## I. Introduction
 
-For the second major course output, students were tasked to create a social network structure or social graph using a real-world dataset collected from Facebook [Traud, Mucha, Porter, 2011]. The objective was to implement a program capable of loading social network data, displaying friend lists, and finding connections between users in the network.
+The second major course output in the Data Structures and Algorithms involves the group creating a social network structure or social graph using a real-world dataset collected from Facebook. The objective was to implement a program capable of loading social network data, displaying friend lists, and finding connections between users in the network.
 
-The group focused on testing the created program using data from several universities including [Insert Universities Used - e.g., Harvard, CalTech, Rice, Trinity]. Additionally, students created test files with custom data for initial validation and debugging purposes.
+We focused on testing the created program using data from several universities, which were converted to text form for better readability, from their original MATLAB (.mat) form. Additionally, we created test files with custom data for initial validation and debugging purposes.
 
-The social graph aims to visually represent the connections between Facebook accounts within specific universities, where each account is a node and each friendship is a bidirectional edge. Java was selected as the implementation language due to its superior readability, built-in support for useful data structures (ArrayList, LinkedList), and robust error handling capabilities. These features made it easier to implement complex graph algorithms and manage the dynamic nature of the social network data.
+The social graph aims to visually represent the connections between Facebook accounts within specific universities, where each account is a node, and each friendship is a bidirectional edge. We implemented this in Java due to its readability, built-in support for useful data structures (ArrayList, LinkedList, Queues, etc.), and good error-handling capabilities. These made it easier to implement complex graph algorithms and manage the nature of the social network data.
 
-This report explores the rationale behind the data structure choices, the algorithms implemented for core functionalities, and the algorithmic analysis in terms of time complexity. The document also discusses key learnings and insights gained from the project implementation.
+This report explores the rationale behind the data structures' choices, the algorithms implemented for the core functionalities, and the algorithmic analysis in terms of time complexity. This document also discusses the key learnings and insights gained from this project.
 
 ---
 
