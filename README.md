@@ -48,10 +48,10 @@ private ArrayList<ArrayList<Integer>> graph;
 
 **Example:**
 ```
-User 0: [1, 3]        → User 0 is friends with users 1 and 3
-User 1: [0, 4]        → User 1 is friends with users 0 and 4
-User 2: [3, 5]        → User 2 is friends with users 3 and 5
-User 3: [0, 2, 5]     → User 3 is friends with users 0, 2, and 5
+User 0: [1, 3]        -> User 0 is friends with users 1 and 3
+User 1: [0, 4]        -> User 1 is friends with users 0 and 4
+User 2: [3, 5]        -> User 2 is friends with users 3 and 5
+User 3: [0, 2, 5]     -> User 3 is friends with users 0, 2, and 5
 ```
 
 ### 2.2 Rationale for Using Adjacency List
